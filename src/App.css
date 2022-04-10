@@ -15,7 +15,7 @@ body::after{
   left: -20%;
   content: '';
   border-radius: 100%;
-  background-color: rgb(176, 124, 185);
+  background-color: rgb(23, 152, 159);
   width: 150px;
   height: 150px;
   display: block;

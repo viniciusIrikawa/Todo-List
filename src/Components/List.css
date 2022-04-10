@@ -24,7 +24,7 @@
 } 
 
 .wrapper-ipt{
-    margin-top: 15px;
+    margin: 20px 0;
     display: flex;
     flex-direction: row;
     justify-content: center;
