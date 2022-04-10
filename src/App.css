@@ -2,3 +2,22 @@
   padding: 0;
   margin: 0;
 }
+body{
+  height: 100vh;
+  background: linear-gradient(rgb(78, 229, 232), rgb(176, 124, 185));
+  position: relative;    
+
+}
+
+body::after{
+  position: absolute;
+  top: 25%;
+  left: -20%;
+  content: '';
+  border-radius: 100%;
+  background-color: rgb(176, 124, 185);
+  width: 150px;
+  height: 150px;
+  display: block;
+  z-index: 1;
+}

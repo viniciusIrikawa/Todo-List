@@ -1,0 +1,58 @@
+.card{
+    width: 90%;
+    min-height: 300px;
+    border-top: 2px solid rgba(255, 255, 255, 0.592);
+    border-left: 2px solid rgba(255, 255, 255, 0.592);
+    border-radius: 15px;
+    position: relative;
+    background-color: transparent;
+    backdrop-filter: blur(8px);
+    z-index: 2;
+    box-shadow: 5px 5px 10px rgba(62, 60, 60, 0.26);
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.card h1{
+    font-family: cursive;
+    font-size: 25px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.858);
+    margin-top: 10px;
+} 
+
+.wrapper-ipt{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.ipt-box{
+    width: 80%;
+    border-radius: 5px;
+    padding: 5px 0;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.592);
+}
+
+.btn-add{
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.592);
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    margin-left: 5px;
+    font-size: 15px;
+    cursor: pointer;
+
+}
+
+@media screen and (min-width: 768px){
+    .card{
+        width: 30%;
+    }
+}
