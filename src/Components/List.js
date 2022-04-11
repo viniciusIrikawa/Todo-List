@@ -15,7 +15,12 @@ function List() {
         newArray.splice(itemIndex, 1);
         setList(newArray)
     }
-    
+    const EnterKeyEvent = e => {
+        if (e.keyCode === 13) {
+            AddToList();
+        }
+    }
+
     return (
         <div className='card'>
             <h1> My list </h1>
@@ -23,7 +28,8 @@ function List() {
                 <input type="text" 
                        value={item}
                        placeholder='Type...' 
-                       className='ipt-box' 
+                       className='ipt-box'
+                       onKeyDown={EnterKeyEvent} 
                        onChange={e => setItem(e.target.value)}/>
                        
                 <button className='btn-add' onClick={() => AddToList()}> + </button>

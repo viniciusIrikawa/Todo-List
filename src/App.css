@@ -15,9 +15,15 @@ body::after{
   left: -20%;
   content: '';
   border-radius: 100%;
-  background-color: rgb(23, 152, 159);
+  background-color: rgb(53, 165, 171);
   width: 150px;
   height: 150px;
   display: block;
   z-index: 1;
+}
+@media screen and (min-width: 768px){
+  body::after{
+    top: 30%;
+    left: 37%;
+  }
 }
