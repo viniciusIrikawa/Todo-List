@@ -47,6 +47,7 @@
 
 .ipt-box{
     width: 80%;
+    height: 25px;
     border-radius: 5px;
     padding: 5px 0;
     border: none;
@@ -85,8 +86,8 @@
     width: 90%;
     display: inline-block;
     list-style: none;
-    font-family: cursive;
-    font-size: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 17px;
     color: #fff;
 }
 .wrapper-items .btn-remove{
