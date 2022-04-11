@@ -28,16 +28,14 @@ function List() {
                        
                 <button className='btn-add' onClick={() => AddToList()}> + </button>
             </div>
-            <div className='wrapper-items'>
-                <ul>
-                    {list.map((list, index) => 
-                        <>
-                            <li key={index}> {list} </li>
-                            <button onClick={() => RemoveFromList(index)}> - </button>
-                        </>
-                    )}
-                </ul>
-            </div>
+            <ul className='wrapper-items'>
+                {list.map((list, index) => 
+                    <div key={index}>
+                        <li> {list} </li>
+                        <button className='btn-remove' onClick={() => RemoveFromList(index)}> x </button>
+                    </div>
+                )}
+            </ul>
         </div>
     )
 }

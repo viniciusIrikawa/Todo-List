@@ -1,7 +1,7 @@
 .card{
     width: 90%;
     min-height: 300px;
-    padding-bottom: 40px;
+    padding: 0 10px 40px 10px;
     border-top: 2px solid rgba(255, 255, 255, 0.592);
     border-left: 2px solid rgba(255, 255, 255, 0.592);
     border-radius: 15px;
@@ -51,6 +51,38 @@
     cursor: pointer;
 
 }
+
+.wrapper-items{
+    width: 100%;
+    margin-top: 40px;
+}
+.wrapper-items div{
+    border-radius: 2px;
+    box-shadow: 0px 3px 8px rgba(31, 30, 30, 0.357);
+    margin: 10px 0;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.wrapper-items li{
+    margin-right: 5px;
+    width: 90%;
+    display: inline-block;
+    list-style: none;
+}
+.wrapper-items .btn-remove{
+    width: 30px;
+    background-color: rgb(52, 50, 50, 52.93);
+    color: #fff;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
 
 @media screen and (min-width: 768px){
     .card{
