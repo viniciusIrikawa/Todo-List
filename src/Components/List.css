@@ -32,7 +32,7 @@
 
 .card h1{
     font-family: cursive;
-    font-size: 25px;
+    font-size: 30px;
     text-align: center;
     color: rgba(255, 255, 255, 0.858);
     margin-top: 10px;
@@ -85,6 +85,9 @@
     width: 90%;
     display: inline-block;
     list-style: none;
+    font-family: cursive;
+    font-size: 15px;
+    color: #fff;
 }
 .wrapper-items .btn-remove{
     width: 30px;
