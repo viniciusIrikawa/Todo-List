@@ -10,8 +10,10 @@ function List() {
         setItem("");
     }
 
-    const RemoveFromList = () => {
-        console.log('Removed')
+    const RemoveFromList = (itemIndex) => {
+        const newArray = [...list];
+        newArray.splice(itemIndex, 1);
+        setList(newArray)
     }
     
     return (
@@ -31,7 +33,7 @@ function List() {
                     {list.map((list, index) => 
                         <>
                             <li key={index}> {list} </li>
-                            <button onClick={RemoveFromList}> - </button>
+                            <button onClick={() => RemoveFromList(index)}> - </button>
                         </>
                     )}
                 </ul>
