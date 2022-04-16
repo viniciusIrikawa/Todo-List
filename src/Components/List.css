@@ -28,7 +28,18 @@
     background-color: rgba(26, 25, 25, 0.307);
     border-radius: 20px;    
     overflow: hidden;
-  }
+}
+.counterItems{
+    position: absolute;
+    top: 5%;
+    left: 2%;
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-size: 15px;
+    background-color: rgba(255, 255, 255, 0.485);
+    color: #407c75;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 
 .card h1{
     font-family: cursive;
@@ -84,6 +95,9 @@
 .wrapper-items li{
     margin-right: 5px;
     width: 90%;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
     display: inline-block;
     list-style: none;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;

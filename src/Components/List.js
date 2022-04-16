@@ -6,6 +6,10 @@ function List() {
     const [item, setItem] = useState("");
 
     const AddToList = () => {
+        if(item.length == 0){
+            alert("Campo vazio!")
+            return;
+        }
         setList([...list, item]);
         setItem("");
     }
@@ -24,11 +28,13 @@ function List() {
     return (
         <div className='card'>
             <h1> My list </h1>
+            <span className='counterItems'> {list.length} </span>
             <div className='wrapper-ipt'>
                 <input type="text" 
                        value={item}
                        placeholder='Type...' 
                        className='ipt-box'
+                       maxLength={50}
                        onKeyDown={EnterKeyEvent} 
                        onChange={e => setItem(e.target.value)}/>
                        
