@@ -25,6 +25,9 @@ function List() {
         }
     }
 
+    const clearAll = () => {
+        setList([])
+    }
     return (
         <div className='card'>
             <h1> My list </h1>
@@ -48,6 +51,7 @@ function List() {
                     </div>
                 )}
             </ul>
+            <button onClick={clearAll} className="btnClearAll" title='Clear All'> <i class="fa-solid fa-trash-can"></i> </button>
         </div>
     )
 }
