@@ -1,9 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './List.css'
 
 function List() {
     const [list, setList] = useState([]);
     const [item, setItem] = useState("");
+
+    useEffect(() => {
+        if(localStorage.getItem('List')){
+            const storedList = JSON.parse(localStorage.getItem('List'));
+            setList(storedList);
+        }
+    }, [])
 
     const AddToList = () => {
         if(item.length == 0){
@@ -12,12 +19,14 @@ function List() {
         }
         setList([...list, item]);
         setItem("");
+        localStorage.setItem('List' , JSON.stringify([...list, item]))
     }
 
     const RemoveFromList = (itemIndex) => {
         const newArray = [...list];
         newArray.splice(itemIndex, 1);
         setList(newArray)
+        localStorage.setItem('List', JSON.stringify(newArray))
     }
     const EnterKeyEvent = e => {
         if (e.keyCode === 13) {
@@ -27,6 +36,7 @@ function List() {
 
     const clearAll = () => {
         setList([])
+        localStorage.removeItem('List')
     }
     return (
         <div className='card'>
@@ -51,7 +61,7 @@ function List() {
                     </div>
                 )}
             </ul>
-            <button onClick={clearAll} className="btnClearAll" title='Clear All'> <i class="fa-solid fa-trash-can"></i> </button>
+            <button onClick={clearAll} className="btnClearAll" title='Clear All'> <i className="fa-solid fa-trash-can"></i> </button>
         </div>
     )
 }
