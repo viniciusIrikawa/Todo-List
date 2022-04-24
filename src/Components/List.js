@@ -36,17 +36,22 @@ function List() {
     }
 
     const clearAll = () => {
-        setList([])
-        localStorage.removeItem('List')
+        if(list.length == 0){
+            alert('No tasks to be removed!')
+        }
+        else if(list.length >= 1 && window.confirm('You will delete all tasks. Are you sure?')){
+            setList([])
+            localStorage.removeItem('List')
+        }
     }
 
     const HandleCheckBox = (task) => {
         setList(list.map((item) => {
             if(item.id === task.id){
                 return {...item, completed: !item.completed};
-                }
+            }
                 return item;
-            }))
+            })) 
     }
 
     return (
@@ -67,7 +72,7 @@ function List() {
             <ul className='wrapper-items'>
                 {list.map((list) => 
                     <div key={list.id} style={{backgroundColor: list.completed ? '#ff000082' : ' '}}>
-                        <li> <input type='checkbox' onChange={() => HandleCheckBox(list)}></input> {list.itemName} </li>
+                        <li style={{textDecoration: list.completed ? 'line-through' : ' '}}> <input type='checkbox' onChange={() => HandleCheckBox(list)}></input> {list.itemName} </li>
                         <button className='btn-remove' onClick={() => RemoveFromList(list)}> x </button>
                     </div>
                 )}
