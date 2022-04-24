@@ -14,20 +14,21 @@ function List() {
 
     const AddToList = () => {
         if(item.length == 0){
-            alert("Campo vazio!")
+            alert("Empty field!")
             return;
         }
-        setList([...list, item]);
+        setList([...list, {id: Math.random().toFixed(4) * 10000 , itemName: item, completed: false}]);
         setItem("");
-        localStorage.setItem('List' , JSON.stringify([...list, item]))
+        localStorage.setItem('List' , JSON.stringify([...list, {id: Math.random().toFixed(4) * 10000 , itemName: item, completed: false}]))
+        console.log(list)
     }
 
     const RemoveFromList = (itemIndex) => {
-        const newArray = [...list];
-        newArray.splice(itemIndex, 1);
-        setList(newArray)
-        localStorage.setItem('List', JSON.stringify(newArray))
+        const deleted = list.filter((item) => item.id !== itemIndex.id);
+        setList(deleted);
+        localStorage.setItem('List', JSON.stringify(deleted))
     }
+
     const EnterKeyEvent = e => {
         if (e.keyCode === 13) {
             AddToList();
@@ -38,6 +39,16 @@ function List() {
         setList([])
         localStorage.removeItem('List')
     }
+
+    const HandleCheckBox = (task) => {
+        setList(list.map((item) => {
+            if(item.id === task.id){
+                return {...item, completed: !item.completed};
+                }
+                return item;
+            }))
+    }
+
     return (
         <div className='card'>
             <h1> My list </h1>
@@ -51,13 +62,13 @@ function List() {
                        onKeyDown={EnterKeyEvent} 
                        onChange={e => setItem(e.target.value)}/>
                        
-                <button className='btn-add' onClick={() => AddToList()}> + </button>
+                <button className='btn-add' onClick={AddToList}> + </button>
             </div>
             <ul className='wrapper-items'>
-                {list.map((list, index) => 
-                    <div key={index}>
-                        <li> {list} </li>
-                        <button className='btn-remove' onClick={() => RemoveFromList(index)}> x </button>
+                {list.map((list) => 
+                    <div key={list.id} style={{backgroundColor: list.completed ? '#ff000082' : ' '}}>
+                        <li> <input type='checkbox' onChange={() => HandleCheckBox(list)}></input> {list.itemName} </li>
+                        <button className='btn-remove' onClick={() => RemoveFromList(list)}> x </button>
                     </div>
                 )}
             </ul>
