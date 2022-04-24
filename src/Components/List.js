@@ -36,10 +36,7 @@ function List() {
     }
 
     const clearAll = () => {
-        if(list.length == 0){
-            alert('No tasks to be removed!')
-        }
-        else if(list.length >= 1 && window.confirm('You will delete all tasks. Are you sure?')){
+        if(list.length >= 1 && window.confirm('You will delete all tasks. Are you sure?')){
             setList([])
             localStorage.removeItem('List')
         }
@@ -56,8 +53,11 @@ function List() {
 
     return (
         <div className='card'>
-            <h1> My list </h1>
-            <span className='counterItems'> {list.length} </span>
+                <div className='wrapper-tools'>
+                    <span className='counterItems'> {list.length == 0 ? 'No tasks' : list.length} </span>
+                    <button onClick={clearAll} className="btnClearAll" title='Clear All' style={{display: list.length == 0 ? 'none' : 'initial'}}> <i className="fa-solid fa-trash-can"></i> </button>
+                </div>
+                <h1> My list </h1>
             <div className='wrapper-ipt'>
                 <input type="text" 
                        value={item}
@@ -77,7 +77,6 @@ function List() {
                     </div>
                 )}
             </ul>
-            <button onClick={clearAll} className="btnClearAll" title='Clear All'> <i className="fa-solid fa-trash-can"></i> </button>
         </div>
     )
 }
