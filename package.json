@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-  "homepage": "http://viniciusIrikawa.github.io/Todo-List",
-=======
   "homepage": "https://viniciusirikawa.github.io/Todo-List/",
->>>>>>> d37cf67f891b65f05b71960481efe9e5ff5597c1
   "name": "todo-list",
   "version": "0.1.0",
   "private": true,
