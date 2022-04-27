@@ -43,19 +43,27 @@ function List() {
     }
 
     const HandleCheckBox = (task) => {
-        setList(list.map((item) => {
-            if(item.id === task.id){
-                return {...item, completed: !item.completed};
+        const storeItem = list.map((item) => {
+            if(item.id === task.id) {
+                return {...item, completed: !item.completed}
             }
-                return item;
-            })) 
+            return item
+
+        })
+        setList(storeItem)
+        localStorage.setItem('List' , JSON.stringify(storeItem))
     }
 
     return (
         <div className='card'>
                 <div className='wrapper-tools'>
                     <span className='counterItems'> {list.length == 0 ? 'No tasks' : list.length} </span>
-                    <button onClick={clearAll} className="btnClearAll" title='Clear All' style={{display: list.length == 0 ? 'none' : 'initial'}}> <i className="fa-solid fa-trash-can"></i> </button>
+                    <button onClick={clearAll} 
+                            className="btnClearAll" 
+                            title='Clear All' 
+                            style={{display: list.length == 0 ? 'none' : 'initial'}}>
+                             <i className="fa-solid fa-trash-can"></i> 
+                    </button>
                 </div>
                 <h1> My list </h1>
             <div className='wrapper-ipt'>
@@ -72,7 +80,11 @@ function List() {
             <ul className='wrapper-items'>
                 {list.map((list) => 
                     <div key={list.id} style={{backgroundColor: list.completed ? '#ff000082' : ' '}}>
-                        <li style={{textDecoration: list.completed ? 'line-through' : ' '}}> <input type='checkbox' onChange={() => HandleCheckBox(list)}></input> {list.itemName} </li>
+                        <li style={{textDecoration: list.completed ? 'line-through' : ' '}}> 
+                            <input type='checkbox' 
+                                   checked={list.completed} 
+                                   onChange={() => HandleCheckBox(list)}>
+                            </input> {list.itemName} </li>
                         <button className='btn-remove' onClick={() => RemoveFromList(list)}> x </button>
                     </div>
                 )}
