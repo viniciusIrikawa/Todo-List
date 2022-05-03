@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Filter } from './Filter';
 import './List.css'
 
 function List() {
@@ -56,6 +57,7 @@ function List() {
 
     return (
         <div className='card'>
+                <Filter list={list} setList={setList}></Filter>
                 <div className='wrapper-tools'>
                     <span className='counterItems'> {list.length == 0 ? 'No tasks' : list.length} </span>
                     <button onClick={clearAll} 

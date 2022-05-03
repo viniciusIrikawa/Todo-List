@@ -34,7 +34,7 @@
     top: 4%;
 }
 .counterItems{
-    padding: 5px 10px;
+    padding: 5px 10px 5px 12px;
     border-radius: 50px;
     margin-right: 10px;
     font-size: 13px;
@@ -73,7 +73,7 @@
     width: 80%;
     height: 25px;
     border-radius: 5px;
-    padding: 5px 0;
+    padding: 5px 10px;
     border: none;
     outline: none;
     background-color: rgba(255, 255, 255, 0.592);
