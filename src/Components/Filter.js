@@ -20,7 +20,7 @@ export const Filter = ({list, setList}) => {
     }
 
   return (
-    <div className='wrapper-filter' style={{opacity: list.length == 0 ?  '0' : '1'}}>
+    <div className='wrapper-filter' style={{opacity: list.find(el => el.completed) ?  '1' : '0' }}>
         <input type='checkbox' name='checkbox' id='checkbox' onChange={(e) => filterCompleted(e)}></input> 
         <label htmlFor="checkbox"> Filter </label>
      </div>
